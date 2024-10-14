@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
-
+from django.conf.urls import handler404
+# Other url patterns
 urlpatterns = [
     path('', views.home, name='index'),
     path('404', views.error, name='404'),
@@ -10,3 +11,6 @@ urlpatterns = [
     path('team', views.team, name='team'),
     path('testimonial', views.testimonial, name='testimonial')
 ]
+
+# Set the custom 404 view
+handler404 = 'elearning.views.custom_404_view'
